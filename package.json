@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "build": "echo ok"
+  },
+  "dependencies": {
+    "express": "4.18.2"
   }
 }
