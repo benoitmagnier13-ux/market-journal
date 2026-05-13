@@ -2,10 +2,6 @@
   "name": "market-journal",
   "version": "1.0.0",
   "scripts": {
-    "build": "echo ok",
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "4.18.2"
+    "build": "echo ok"
   }
 }
