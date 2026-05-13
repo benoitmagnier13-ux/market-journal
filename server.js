@@ -1,12 +1,11 @@
 const express = require('express')
+const path = require('path')
 const app = express()
 
-app.use(express.static('public'))
+const publicDir = path.resolve(process.cwd(), 'public')
+
+app.use(express.static(publicDir))
 
 app.get('*', (req, res) => {
-  res.sendFile('index.html', { root: 'public' })
+  res.sendFile(path.join(publicDir, 'index.html'))
 })
-
-app.listen(process.env.PORT || 3000)
-
-
