@@ -194,8 +194,15 @@ async function loadBriefing() {
   const el = document.getElementById('briefing-content')
   if (!error && data && data.length > 0) {
     const b = data[0]
-    const text = typeof b.content === 'string' ? b.content.replace(/\\n/g, '\n') : JSON.stringify(b.content)
-    el.innerHTML = `<div class="card" style="white-space:pre-wrap;line-height:1.7;font-size:14px"><div style="font-weight:700;color:#1a1a2e;margin-bottom:12px">📊 Briefing du ${new Date(b.briefing_date).toLocaleDateString('fr-FR')}</div>${text}</div>`
+    let text = typeof b.content === 'string' ? b.content : JSON.stringify(b.content)
+text = text
+  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+  .replace(/^### (.*)/gm, '<div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-top:12px">$1</div>')
+  .replace(/^## (.*)/gm, '<div style="font-size:14px;font-weight:700;color:#1a1a2e;margin-top:14px">$1</div>')
+  .replace(/^# (.*)/gm, '<div style="font-size:16px;font-weight:700;color:#1a1a2e;margin-top:16px">$1</div>')
+  .replace(/^---$/gm, '<hr style="border:none;border-top:1px solid #e8ecf0;margin:10px 0">')
+  .replace(/\n/g, '<br>')
+el.innerHTML = `<div class="card" style="line-height:1.7;font-size:14px"><div style="font-weight:700;color:#1a1a2e;margin-bottom:12px">📊 Briefing du ${new Date(b.briefing_date).toLocaleDateString('fr-FR')}</div>${text}</div>`
   } else {
     el.innerHTML = '<div class="empty">Aucun briefing disponible</div>'
   }
