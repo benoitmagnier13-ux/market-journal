@@ -12,25 +12,23 @@
     .header { background: #1a1a2e; padding: 16px 20px 0; }
     .header h1 { color: #fff; font-size: 18px; margin-bottom: 2px; }
     .header p { color: #8892a4; font-size: 11px; margin-bottom: 12px; }
-    .tabs { display: flex; }
-    .tab { background: transparent; color: #8892a4; border: none; padding: 10px 20px; font-size: 13px; cursor: pointer; border-radius: 8px 8px 0 0; font-family: inherit; transition: all .15s; }
+    .tabs { display: flex; gap: 2px; }
+    .tab { background: transparent; color: #8892a4; border: none; padding: 10px 16px; font-size: 12px; cursor: pointer; border-radius: 8px 8px 0 0; font-family: inherit; transition: all .15s; white-space: nowrap; }
     .tab.active { background: #fff; color: #1a1a2e; font-weight: 700; }
     .content { padding: 16px; max-width: 600px; margin: 0 auto; }
     .card { background: #fff; border-radius: 10px; padding: 16px; margin-bottom: 10px; border: 1px solid #e8ecf0; }
     .empty { text-align: center; padding: 50px 20px; color: #aaa; }
     .label-sm { font-size: 11px; color: #888; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
 
-    /* ── BRIEFING ── */
+    /* BRIEFING */
     .briefing-date { font-weight: 700; color: #1a1a2e; font-size: 15px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #1a1a2e; }
     .briefing-body { font-size: 14px; color: #333; line-height: 1.75; white-space: pre-wrap; }
     .briefing-body strong { color: #1a1a2e; }
 
-    /* ── REPORTING ── */
+    /* REPORTING */
     .sub-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
     .sub-tab { background: #e8ecf0; color: #666; border: none; padding: 6px 14px; font-size: 12px; cursor: pointer; border-radius: 20px; font-family: inherit; font-weight: 600; }
     .sub-tab.active { background: #1a1a2e; color: #fff; }
-
-    /* KPI block */
     .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
     .kpi-box { background: #f8fafc; border-radius: 8px; padding: 12px; border: 1px solid #e8ecf0; text-align: center; }
     .kpi-label { font-size: 10px; color: #8892a4; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
@@ -39,14 +37,10 @@
     .kpi-value.neg { color: #FF0000; }
     .kpi-value.neu { color: #6b7280; }
     .kpi-value.gold { color: #F59E0B; }
-
-    /* Commentaires */
     .comment-block { border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; font-size: 13px; line-height: 1.65; }
     .comment-marche { background: #DBEAFE; color: #1E3A5F; border-left: 4px solid #1D4ED8; }
     .comment-portf  { background: #D1FAE5; color: #14532D; border-left: 4px solid #166534; }
     .comment-title  { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; opacity: .7; }
-
-    /* Transactions */
     .txn-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #f0f2f5; font-size: 13px; }
     .txn-row:last-child { border-bottom: none; }
     .txn-left { flex: 1; }
@@ -55,9 +49,6 @@
     .txn-right { text-align: right; flex-shrink: 0; margin-left: 12px; }
     .txn-achat { color: #00B050; font-weight: 700; font-size: 12px; }
     .txn-vente { color: #FF0000; font-weight: 700; font-size: 12px; }
-    .txn-pct { font-size: 11px; color: #888; }
-
-    /* Perf tableau */
     .poche-header { border-radius: 6px; padding: 8px 12px; margin-top: 10px; margin-bottom: 2px; }
     .poche-header .ph-name { font-size: 12px; font-weight: 700; }
     .poche-header .ph-stats { display: flex; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
@@ -70,8 +61,6 @@
     .line-desc { font-size: 10px; color: #888; }
     .line-right { display: flex; gap: 12px; text-align: right; flex-shrink: 0; }
     .line-pct { min-width: 52px; font-weight: 600; font-size: 12px; }
-
-    /* Allocation */
     .alloc-poche { border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
     .alloc-poche-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
     .alloc-poche-name { font-size: 12px; font-weight: 700; }
@@ -81,16 +70,27 @@
     .alloc-poche-meta { display: flex; justify-content: space-between; font-size: 10px; opacity: .8; }
     .alloc-lines { margin-top: 6px; }
     .alloc-line { display: flex; justify-content: space-between; font-size: 11px; padding: 3px 0; border-top: 1px solid rgba(255,255,255,0.15); }
-    .ecart-pos { color: #00B050; }
-    .ecart-neg { color: #FF0000; }
-    .ecart-ok  { color: #F59E0B; }
+    .total-row { background: #1a1a2e; color: #fff; border-radius: 6px; padding: 8px 12px; margin-top: 8px; display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; }
+    .report-date { font-size: 11px; color: #8892a4; margin-bottom: 14px; font-style: italic; }
+
+    /* PRESSE */
+    .article-card { background: #fff; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; border: 1px solid #e8ecf0; text-decoration: none; display: block; transition: all .15s; }
+    .article-card:hover { border-color: #1a1a2e; box-shadow: 0 2px 8px rgba(26,26,46,.1); }
+    .article-source { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 2px 8px; border-radius: 10px; margin-bottom: 8px; }
+    .source-wsj { background: #1a1a2e; color: #fff; }
+    .source-barrons { background: #B45309; color: #fff; }
+    .source-marketwatch { background: #166534; color: #fff; }
+    .source-default { background: #374151; color: #fff; }
+    .article-title { font-size: 14px; font-weight: 700; color: #1a1a2e; line-height: 1.4; margin-bottom: 8px; }
+    .article-why { font-size: 12px; color: #555; line-height: 1.55; border-left: 3px solid #e8ecf0; padding-left: 10px; }
+    .article-why em { color: #1a1a2e; font-style: normal; font-weight: 600; }
+    .presse-date { font-size: 11px; color: #8892a4; margin-bottom: 14px; font-style: italic; }
+    .presse-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .presse-count { font-size: 12px; color: #8892a4; }
 
     .pos { color: #00B050; }
     .neg { color: #FF0000; }
     .neu { color: #6b7280; }
-
-    .report-date { font-size: 11px; color: #8892a4; margin-bottom: 14px; font-style: italic; }
-    .total-row { background: #1a1a2e; color: #fff; border-radius: 6px; padding: 8px 12px; margin-top: 8px; display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; }
   </style>
 </head>
 <body>
@@ -100,17 +100,18 @@
   <div class="tabs">
     <button class="tab active" onclick="showTab('briefing')">📊 Briefing</button>
     <button class="tab" onclick="showTab('reporting')">📁 Reporting</button>
+    <button class="tab" onclick="showTab('presse')">📰 Presse</button>
   </div>
 </div>
 
 <div class="content">
 
-  <!-- ── BRIEFING ── -->
+  <!-- BRIEFING -->
   <div id="tab-briefing">
     <div id="briefing-content"><div class="empty">⏳ Chargement...</div></div>
   </div>
 
-  <!-- ── REPORTING ── -->
+  <!-- REPORTING -->
   <div id="tab-reporting" style="display:none">
     <div class="sub-tabs">
       <button class="sub-tab active" onclick="showSubTab('synthese')">Synthèse</button>
@@ -120,6 +121,11 @@
     <div id="sub-synthese"></div>
     <div id="sub-positions" style="display:none"></div>
     <div id="sub-allocation" style="display:none"></div>
+  </div>
+
+  <!-- PRESSE -->
+  <div id="tab-presse" style="display:none">
+    <div id="presse-content"><div class="empty">⏳ Chargement...</div></div>
   </div>
 
 </div>
@@ -141,12 +147,11 @@ const POCHE_COLORS = {
 }
 
 function showTab(name) {
-  ['briefing','reporting'].forEach(t => {
+  ['briefing','reporting','presse'].forEach(t => {
     document.getElementById('tab-'+t).style.display = t===name ? '' : 'none'
-    document.querySelectorAll('.tab').forEach((b,i) => {
-      if(['briefing','reporting'][i]===name) b.classList.add('active')
-      else b.classList.remove('active')
-    })
+  })
+  document.querySelectorAll('.tab').forEach((b,i) => {
+    b.classList.toggle('active', ['briefing','reporting','presse'][i]===name)
   })
 }
 
@@ -155,43 +160,27 @@ function showSubTab(name) {
     document.getElementById('sub-'+t).style.display = t===name ? '' : 'none'
   })
   document.querySelectorAll('.sub-tab').forEach((b,i) => {
-    if(['synthese','positions','allocation'][i]===name) b.classList.add('active')
-    else b.classList.remove('active')
+    b.classList.toggle('active', ['synthese','positions','allocation'][i]===name)
   })
 }
 
-function fmt(d) {
-  const [y,m,day]=d.split('-'); return `${day}/${m}/${y}`
-}
+function fmt(d) { const [y,m,day]=d.split('-'); return `${day}/${m}/${y}` }
+function pctClass(v) { return v>0?'pos':v<0?'neg':'neu' }
 
-function pctClass(v) {
-  return v > 0 ? 'pos' : v < 0 ? 'neg' : 'neu'
-}
-
-function pctStr(v, decimals=2) {
-  const s = (v*100).toFixed(decimals)
-  return v > 0 ? '+'+s+'%' : s+'%'
-}
-
-function ecartClass(e) {
-  if(Math.abs(e)<=2) return 'ecart-ok'
-  return e > 0 ? 'pos' : 'neg'
-}
-
-// ── BRIEFING ─────────────────────────────────────────────────────────────────
+// ── BRIEFING ──────────────────────────────────────────────────────────────────
 async function loadBriefing() {
-  const { data, error } = await sb.from('briefings').select('*').order('briefing_date', { ascending: false }).limit(1)
+  const { data, error } = await sb.from('briefings').select('*').order('briefing_date',{ascending:false}).limit(1)
   const el = document.getElementById('briefing-content')
   if (!error && data && data.length > 0) {
     const b = data[0]
-    let text = typeof b.content === 'string' ? b.content : JSON.stringify(b.content)
+    let text = typeof b.content==='string' ? b.content : JSON.stringify(b.content)
     text = text
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/^### (.*)/gm, '<div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-top:12px">$1</div>')
-      .replace(/^## (.*)/gm, '<div style="font-size:14px;font-weight:700;color:#1a1a2e;margin-top:14px">$1</div>')
-      .replace(/^# (.*)/gm, '<div style="font-size:15px;font-weight:700;color:#1a1a2e;margin-top:16px">$1</div>')
-      .replace(/^---$/gm, '<hr style="border:none;border-top:1px solid #e8ecf0;margin:10px 0">')
-      .replace(/\n/g, '<br>')
+      .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+      .replace(/^### (.*)/gm,'<div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-top:12px">$1</div>')
+      .replace(/^## (.*)/gm,'<div style="font-size:14px;font-weight:700;color:#1a1a2e;margin-top:14px">$1</div>')
+      .replace(/^# (.*)/gm,'<div style="font-size:15px;font-weight:700;color:#1a1a2e;margin-top:16px">$1</div>')
+      .replace(/^---$/gm,'<hr style="border:none;border-top:1px solid #e8ecf0;margin:10px 0">')
+      .replace(/\n/g,'<br>')
     el.innerHTML = `<div class="card">
       <div class="briefing-date">📊 Briefing du ${fmt(b.briefing_date)}</div>
       <div class="briefing-body">${text}</div>
@@ -201,31 +190,56 @@ async function loadBriefing() {
   }
 }
 
+// ── PRESSE ────────────────────────────────────────────────────────────────────
+async function loadPresse() {
+  const { data, error } = await sb.from('articles').select('*').order('article_date',{ascending:false}).order('created_at',{ascending:false}).limit(8)
+  const el = document.getElementById('presse-content')
+  if (!error && data && data.length > 0) {
+    const date = data[0].article_date
+    const sourceClass = (s) => {
+      if(s.toLowerCase().includes('wsj')) return 'source-wsj'
+      if(s.toLowerCase().includes('barron')) return 'source-barrons'
+      if(s.toLowerCase().includes('market')) return 'source-marketwatch'
+      return 'source-default'
+    }
+    el.innerHTML = `
+      <div class="presse-header">
+        <div class="presse-date">Sélection du ${fmt(date)}</div>
+        <div class="presse-count">${data.length} articles</div>
+      </div>
+      ${data.map(a => `
+        <a href="${a.url}" target="_blank" class="article-card">
+          <div><span class="article-source ${sourceClass(a.source)}">${a.source}</span></div>
+          <div class="article-title">${a.title}</div>
+          ${a.summary ? `<div class="article-why">${a.summary}</div>` : ''}
+        </a>
+      `).join('')}
+    `
+  } else {
+    el.innerHTML = '<div class="empty">📰<br><br>Aucun article disponible<br><small style="color:#ccc;margin-top:8px;display:block">Mis à jour chaque soir à 20h30</small></div>'
+  }
+}
+
 // ── REPORTING ─────────────────────────────────────────────────────────────────
 async function loadReporting() {
-  const { data, error } = await sb.from('reporting').select('*').order('report_date', { ascending: false }).limit(1)
-  if (error || !data || data.length === 0) {
-    document.getElementById('sub-synthese').innerHTML = '<div class="empty">Aucun reporting disponible</div>'
-    document.getElementById('sub-positions').innerHTML = '<div class="empty">Aucun reporting disponible</div>'
-    document.getElementById('sub-allocation').innerHTML = '<div class="empty">Aucun reporting disponible</div>'
+  const { data, error } = await sb.from('reporting').select('*').order('report_date',{ascending:false}).limit(1)
+  if (error || !data || data.length===0) {
+    ['synthese','positions','allocation'].forEach(t =>
+      document.getElementById('sub-'+t).innerHTML='<div class="empty">Aucun reporting disponible</div>'
+    )
     return
   }
-  const r = data[0]
-  const d = r.data
+  const r=data[0]; const d=r.data
   renderSynthese(d, r.report_date)
   renderPositions(d)
   renderAllocation(d)
 }
 
 function renderSynthese(d, date) {
-  const m = d.meta
-  const twrClass = pctClass(m.perf_twr/100)
-  const acspxClass = pctClass(m.alpha_cspx/100)
-  const acoClass = pctClass(m.alpha_compo/100)
-
-  let txnHtml = ''
-  if(d.transactions && d.transactions.length > 0) {
-    txnHtml = d.transactions.map(t => `
+  const m=d.meta
+  let txnHtml=''
+  if(d.transactions && d.transactions.length>0) {
+    txnHtml=d.transactions.map(t=>`
       <div class="txn-row">
         <div class="txn-left">
           <div class="txn-sym">${t.symbol} <span class="txn-${t.side==='Achat'?'achat':'vente'}">${t.side}</span></div>
@@ -236,103 +250,69 @@ function renderSynthese(d, date) {
         </div>
       </div>`).join('')
   }
-
-  document.getElementById('sub-synthese').innerHTML = `
+  document.getElementById('sub-synthese').innerHTML=`
     <div class="report-date">Reporting au ${fmt(date)}</div>
     <div class="kpi-grid">
-      <div class="kpi-box">
-        <div class="kpi-label">NAV Début</div>
-        <div class="kpi-value neu">${m.nav_start?.toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:0})} €</div>
-      </div>
-      <div class="kpi-box">
-        <div class="kpi-label">NAV Fin</div>
-        <div class="kpi-value gold">${m.nav_end?.toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:0})} €</div>
-      </div>
-      <div class="kpi-box">
-        <div class="kpi-label">Perf Période</div>
-        <div class="kpi-value ${twrClass}">${m.perf_twr > 0 ? '+' : ''}${m.perf_twr?.toFixed(2)}%</div>
-      </div>
-      <div class="kpi-box">
-        <div class="kpi-label">Bench 60/40</div>
-        <div class="kpi-value neu">${m.bench_compo > 0 ? '+' : ''}${m.bench_compo?.toFixed(2)}%</div>
-      </div>
-      <div class="kpi-box">
-        <div class="kpi-label">Alpha vs S&P</div>
-        <div class="kpi-value ${acspxClass}">${m.alpha_cspx > 0 ? '+' : ''}${m.alpha_cspx?.toFixed(2)}%</div>
-      </div>
-      <div class="kpi-box">
-        <div class="kpi-label">Alpha vs 60/40</div>
-        <div class="kpi-value ${acoClass}">${m.alpha_compo > 0 ? '+' : ''}${m.alpha_compo?.toFixed(2)}%</div>
-      </div>
+      <div class="kpi-box"><div class="kpi-label">NAV Début</div><div class="kpi-value neu">${m.nav_start?.toLocaleString('fr-FR',{maximumFractionDigits:0})} €</div></div>
+      <div class="kpi-box"><div class="kpi-label">NAV Fin</div><div class="kpi-value gold">${m.nav_end?.toLocaleString('fr-FR',{maximumFractionDigits:0})} €</div></div>
+      <div class="kpi-box"><div class="kpi-label">Perf Période</div><div class="kpi-value ${pctClass(m.perf_twr)}">${m.perf_twr>0?'+':''}${m.perf_twr?.toFixed(2)}%</div></div>
+      <div class="kpi-box"><div class="kpi-label">Bench 60/40</div><div class="kpi-value neu">${m.bench_compo>0?'+':''}${m.bench_compo?.toFixed(2)}%</div></div>
+      <div class="kpi-box"><div class="kpi-label">Alpha vs S&P</div><div class="kpi-value ${pctClass(m.alpha_cspx)}">${m.alpha_cspx>0?'+':''}${m.alpha_cspx?.toFixed(2)}%</div></div>
+      <div class="kpi-box"><div class="kpi-label">Alpha vs 60/40</div><div class="kpi-value ${pctClass(m.alpha_compo)}">${m.alpha_compo>0?'+':''}${m.alpha_compo?.toFixed(2)}%</div></div>
     </div>
-    ${d.commentaire_marche ? `<div class="comment-block comment-marche"><div class="comment-title">📊 Marchés</div>${d.commentaire_marche}</div>` : ''}
-    ${d.commentaire_portf ? `<div class="comment-block comment-portf"><div class="comment-title">💼 Portefeuille</div>${d.commentaire_portf}</div>` : ''}
-    ${txnHtml ? `<div class="card"><div class="label-sm" style="margin-bottom:10px">Transactions du jour</div>${txnHtml}</div>` : ''}
+    ${d.commentaire_marche?`<div class="comment-block comment-marche"><div class="comment-title">📊 Marchés</div>${d.commentaire_marche}</div>`:''}
+    ${d.commentaire_portf?`<div class="comment-block comment-portf"><div class="comment-title">💼 Portefeuille</div>${d.commentaire_portf}</div>`:''}
+    ${txnHtml?`<div class="card"><div class="label-sm" style="margin-bottom:10px">Transactions du jour</div>${txnHtml}</div>`:''}
   `
 }
 
 function renderPositions(d) {
   if(!d.positions_perf) return
-  let html = ''
+  let html=''
   d.positions_perf.forEach(poche => {
-    const pc = POCHE_COLORS[poche.poche] || {bg:'#1a1a2e',fg:'#fff'}
-    const lines = poche.instruments || []
-    const totalW = lines.reduce((a,l)=>a+l.avg_weight,0)
-    const perfMoy = totalW > 0 ? lines.reduce((a,l)=>a+l.avg_weight*l.perf,0)/totalW : 0
-    const contrib = lines.reduce((a,l)=>a+l.avg_weight/100*l.perf/100,0)*100
-    const pctAum = lines.filter(l=>l.open).reduce((a,l)=>a+(l.val_marche||0),0) / d.meta.nav_end * 100
-
-    html += `<div class="poche-header" style="background:${pc.bg};color:${pc.fg}">
+    const pc=POCHE_COLORS[poche.poche]||{bg:'#1a1a2e',fg:'#fff'}
+    const lines=poche.instruments||[]
+    const totalW=lines.reduce((a,l)=>a+l.avg_weight,0)
+    const perfMoy=totalW>0?lines.reduce((a,l)=>a+l.avg_weight*l.perf,0)/totalW:0
+    const contrib=lines.reduce((a,l)=>a+l.avg_weight/100*l.perf/100,0)*100
+    const pctAum=lines.filter(l=>l.open).reduce((a,l)=>a+(l.val_marche||0),0)/d.meta.nav_end*100
+    html+=`<div class="poche-header" style="background:${pc.bg};color:${pc.fg}">
       <div class="ph-name">${poche.poche}</div>
       <div class="ph-stats">
         <div class="ph-stat">AUM <span>${pctAum.toFixed(1)}%</span></div>
-        <div class="ph-stat">Perf <span class="${perfMoy>0?'pos':'neg'}" style="color:${perfMoy>0?'#00ff88':'#ff6666'}">${perfMoy>0?'+':''}${perfMoy.toFixed(2)}%</span></div>
+        <div class="ph-stat">Perf <span style="color:${perfMoy>0?'#00ff88':'#ff6666'}">${perfMoy>0?'+':''}${perfMoy.toFixed(2)}%</span></div>
         <div class="ph-stat">Contrib <span style="color:${contrib>0?'#00ff88':'#ff6666'}">${contrib>0?'+':''}${contrib.toFixed(2)}%</span></div>
       </div>
     </div>
     <div class="card" style="padding:0;overflow:hidden;margin-bottom:4px">`
-
-    lines.forEach(l => {
-      html += `<div class="line-row">
-        <div class="line-left">
-          <div class="line-sym">${l.sym}</div>
-          <div class="line-desc">${l.desc}</div>
-        </div>
+    lines.forEach(l=>{
+      html+=`<div class="line-row">
+        <div class="line-left"><div class="line-sym">${l.sym}</div><div class="line-desc">${l.desc}</div></div>
         <div class="line-right">
-          <div class="line-pct ${pctClass(l.perf/100)}">${l.perf>0?'+':''}${l.perf.toFixed(2)}%</div>
-          <div class="line-pct neu" style="font-size:10px;color:#888">${(l.avg_weight).toFixed(1)}%</div>
+          <div class="line-pct ${pctClass(l.perf)}">${l.perf>0?'+':''}${l.perf.toFixed(2)}%</div>
+          <div class="line-pct" style="font-size:10px;color:#888">${l.avg_weight.toFixed(1)}%</div>
         </div>
       </div>`
     })
-    html += `</div>`
+    html+=`</div>`
   })
-
-  // Total
-  html += `<div class="total-row">
-    <span>TOTAL PORTEFEUILLE</span>
-    <span class="${pctClass(d.meta.perf_twr/100)}">${d.meta.perf_twr>0?'+':''}${d.meta.perf_twr.toFixed(2)}%</span>
-  </div>`
-
-  document.getElementById('sub-positions').innerHTML = html
+  html+=`<div class="total-row"><span>TOTAL</span><span class="${pctClass(d.meta.perf_twr)}">${d.meta.perf_twr>0?'+':''}${d.meta.perf_twr.toFixed(2)}%</span></div>`
+  document.getElementById('sub-positions').innerHTML=html
 }
 
 function renderAllocation(d) {
   if(!d.positions_fin_periode) return
-  const ALLOC_CIBLE = {
-    'EQUITY CŒUR':45,'HEDGE / CTA / FONDS':20,
-    'FIXED INCOME':20,'COMMODITIES':5,'CASH':10
-  }
-  let html = ''
-  d.positions_fin_periode.forEach(poche => {
-    const pc = POCHE_COLORS[poche.poche] || {bg:'#1a1a2e',fg:'#fff'}
-    const lines = poche.instruments || []
-    const valTot = lines.reduce((a,l)=>a+(l.val_marche||0),0)
-    const pctNav = valTot / d.meta.nav_end * 100
-    const cible = ALLOC_CIBLE[poche.poche] || 0
-    const ecart = pctNav - cible
-    const barW = Math.min(pctNav / 60 * 100, 100)
-
-    html += `<div class="alloc-poche" style="background:${pc.bg};color:${pc.fg}">
+  const CIBLE={'EQUITY CŒUR':45,'HEDGE / CTA / FONDS':20,'FIXED INCOME':20,'COMMODITIES':5,'CASH':10}
+  let html=''
+  d.positions_fin_periode.forEach(poche=>{
+    const pc=POCHE_COLORS[poche.poche]||{bg:'#1a1a2e',fg:'#fff'}
+    const lines=poche.instruments||[]
+    const valTot=lines.reduce((a,l)=>a+(l.val_marche||0),0)
+    const pctNav=valTot/d.meta.nav_end*100
+    const cible=CIBLE[poche.poche]||0
+    const ecart=pctNav-cible
+    const barW=Math.min(pctNav/60*100,100)
+    html+=`<div class="alloc-poche" style="background:${pc.bg};color:${pc.fg}">
       <div class="alloc-poche-header">
         <div class="alloc-poche-name">${poche.poche}</div>
         <div class="alloc-poche-val">${valTot.toLocaleString('fr-FR',{maximumFractionDigits:0})} €</div>
@@ -344,24 +324,18 @@ function renderAllocation(d) {
         <span>Écart <strong>${ecart>0?'+':''}${ecart.toFixed(1)}%</strong></span>
       </div>
       <div class="alloc-lines">`
-
-    lines.forEach(l => {
-      const pct = (l.val_marche||0) / d.meta.nav_end * 100
-      html += `<div class="alloc-line">
-        <span><strong>${l.sym}</strong> ${l.desc}</span>
-        <span>${pct.toFixed(1)}%</span>
-      </div>`
+    lines.forEach(l=>{
+      const pct=(l.val_marche||0)/d.meta.nav_end*100
+      html+=`<div class="alloc-line"><span><strong>${l.sym}</strong> ${l.desc}</span><span>${pct.toFixed(1)}%</span></div>`
     })
-
-    html += `</div></div>`
+    html+=`</div></div>`
   })
-
-  document.getElementById('sub-allocation').innerHTML = html
+  document.getElementById('sub-allocation').innerHTML=html
 }
 
-// ── Init ──────────────────────────────────────────────────────────────────────
 loadBriefing()
 loadReporting()
+loadPresse()
 </script>
 </body>
 </html>
