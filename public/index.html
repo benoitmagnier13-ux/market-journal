@@ -13,205 +13,355 @@
     .header h1 { color: #fff; font-size: 18px; margin-bottom: 2px; }
     .header p { color: #8892a4; font-size: 11px; margin-bottom: 12px; }
     .tabs { display: flex; }
-    .tab { background: transparent; color: #8892a4; border: none; padding: 10px 18px; font-size: 13px; cursor: pointer; border-radius: 8px 8px 0 0; font-family: inherit; }
+    .tab { background: transparent; color: #8892a4; border: none; padding: 10px 20px; font-size: 13px; cursor: pointer; border-radius: 8px 8px 0 0; font-family: inherit; transition: all .15s; }
     .tab.active { background: #fff; color: #1a1a2e; font-weight: 700; }
-    .content { padding: 16px; max-width: 480px; margin: 0 auto; }
+    .content { padding: 16px; max-width: 600px; margin: 0 auto; }
     .card { background: #fff; border-radius: 10px; padding: 16px; margin-bottom: 10px; border: 1px solid #e8ecf0; }
-    .asset-row { margin-bottom: 14px; }
-    .asset-label { font-size: 13px; font-weight: 600; color: #444; margin-bottom: 6px; }
-    .btns { display: flex; gap: 6px; }
-    .btn-sentiment { flex: 1; padding: 9px 0; border: 1.5px solid #dde1e7; border-radius: 7px; background: #fff; color: #aaa; font-size: 13px; cursor: pointer; font-family: inherit; }
-    .btn-sentiment.sel-n2 { border-color: #c0392b; background: #fdf0ee; color: #c0392b; font-weight: 700; }
-    .btn-sentiment.sel-n1 { border-color: #e67e22; background: #fef9f0; color: #e67e22; font-weight: 700; }
-    .btn-sentiment.sel-0  { border-color: #7f8c8d; background: #f5f6fa; color: #7f8c8d; font-weight: 700; }
-    .btn-sentiment.sel-p1 { border-color: #27ae60; background: #edfaf3; color: #27ae60; font-weight: 700; }
-    .btn-sentiment.sel-p2 { border-color: #1a7a4a; background: #d5f5e3; color: #1a7a4a; font-weight: 700; }
-    textarea { width: 100%; border: 1.5px solid #dde1e7; border-radius: 8px; padding: 10px 12px; font-size: 14px; font-family: inherit; resize: vertical; margin-top: 4px; }
-    .btn-save { width: 100%; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 16px; font-family: inherit; }
-    .label-sm { font-size: 11px; color: #888; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
-    input[type=date] { border: 1.5px solid #dde1e7; border-radius: 7px; padding: 8px 12px; font-size: 14px; width: 100%; margin-top: 4px; font-family: inherit; }
-    .entry-date { font-weight: 700; color: #1a1a2e; font-size: 14px; margin-bottom: 8px; }
-    .badges { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
-    .badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
-    .comment-block { font-size: 13px; color: #555; line-height: 1.5; border-left: 3px solid #1a1a2e; padding-left: 10px; }
-    .status { color: #27ae60; font-size: 12px; font-weight: 600; margin-left: 12px; }
     .empty { text-align: center; padding: 50px 20px; color: #aaa; }
-    .avg-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px; }
+    .label-sm { font-size: 11px; color: #888; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+
+    /* ── BRIEFING ── */
+    .briefing-date { font-weight: 700; color: #1a1a2e; font-size: 15px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #1a1a2e; }
+    .briefing-body { font-size: 14px; color: #333; line-height: 1.75; white-space: pre-wrap; }
+    .briefing-body strong { color: #1a1a2e; }
+
+    /* ── REPORTING ── */
+    .sub-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+    .sub-tab { background: #e8ecf0; color: #666; border: none; padding: 6px 14px; font-size: 12px; cursor: pointer; border-radius: 20px; font-family: inherit; font-weight: 600; }
+    .sub-tab.active { background: #1a1a2e; color: #fff; }
+
+    /* KPI block */
+    .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .kpi-box { background: #f8fafc; border-radius: 8px; padding: 12px; border: 1px solid #e8ecf0; text-align: center; }
+    .kpi-label { font-size: 10px; color: #8892a4; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+    .kpi-value { font-size: 18px; font-weight: 700; }
+    .kpi-value.pos { color: #00B050; }
+    .kpi-value.neg { color: #FF0000; }
+    .kpi-value.neu { color: #6b7280; }
+    .kpi-value.gold { color: #F59E0B; }
+
+    /* Commentaires */
+    .comment-block { border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; font-size: 13px; line-height: 1.65; }
+    .comment-marche { background: #DBEAFE; color: #1E3A5F; border-left: 4px solid #1D4ED8; }
+    .comment-portf  { background: #D1FAE5; color: #14532D; border-left: 4px solid #166534; }
+    .comment-title  { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; opacity: .7; }
+
+    /* Transactions */
+    .txn-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #f0f2f5; font-size: 13px; }
+    .txn-row:last-child { border-bottom: none; }
+    .txn-left { flex: 1; }
+    .txn-sym { font-weight: 700; color: #1a1a2e; }
+    .txn-desc { font-size: 11px; color: #888; margin-top: 2px; }
+    .txn-right { text-align: right; flex-shrink: 0; margin-left: 12px; }
+    .txn-achat { color: #00B050; font-weight: 700; font-size: 12px; }
+    .txn-vente { color: #FF0000; font-weight: 700; font-size: 12px; }
+    .txn-pct { font-size: 11px; color: #888; }
+
+    /* Perf tableau */
+    .poche-header { border-radius: 6px; padding: 8px 12px; margin-top: 10px; margin-bottom: 2px; }
+    .poche-header .ph-name { font-size: 12px; font-weight: 700; }
+    .poche-header .ph-stats { display: flex; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
+    .ph-stat { font-size: 11px; }
+    .ph-stat span { font-weight: 700; }
+    .line-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 8px; border-bottom: 1px solid #f0f2f5; font-size: 12px; }
+    .line-row:nth-child(even) { background: #f8fafc; }
+    .line-left { flex: 1; }
+    .line-sym { font-weight: 700; color: #1a1a2e; }
+    .line-desc { font-size: 10px; color: #888; }
+    .line-right { display: flex; gap: 12px; text-align: right; flex-shrink: 0; }
+    .line-pct { min-width: 52px; font-weight: 600; font-size: 12px; }
+
+    /* Allocation */
+    .alloc-poche { border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+    .alloc-poche-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .alloc-poche-name { font-size: 12px; font-weight: 700; }
+    .alloc-poche-val { font-size: 12px; font-weight: 700; }
+    .alloc-bar-wrap { height: 6px; background: rgba(255,255,255,0.3); border-radius: 3px; margin-bottom: 6px; }
+    .alloc-bar { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.8); }
+    .alloc-poche-meta { display: flex; justify-content: space-between; font-size: 10px; opacity: .8; }
+    .alloc-lines { margin-top: 6px; }
+    .alloc-line { display: flex; justify-content: space-between; font-size: 11px; padding: 3px 0; border-top: 1px solid rgba(255,255,255,0.15); }
+    .ecart-pos { color: #00B050; }
+    .ecart-neg { color: #FF0000; }
+    .ecart-ok  { color: #F59E0B; }
+
+    .pos { color: #00B050; }
+    .neg { color: #FF0000; }
+    .neu { color: #6b7280; }
+
+    .report-date { font-size: 11px; color: #8892a4; margin-bottom: 14px; font-style: italic; }
+    .total-row { background: #1a1a2e; color: #fff; border-radius: 6px; padding: 8px 12px; margin-top: 8px; display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; }
   </style>
 </head>
 <body>
 <div class="header">
-  <h1>Market Journal <span class="status" id="status"></span></h1>
-  <p>Wealth Management</p>
+  <h1>Wealth Management</h1>
+  <p>Interactive Brokers — Port alloc strat</p>
   <div class="tabs">
-   <button class="tab active" onclick="showTab('journal')">Journal</button>
-<button class="tab" onclick="showTab('saisie')">Saisie</button>
-<button class="tab" onclick="showTab('synthese')">Synthèse</button>
-<button class="tab" onclick="showTab('briefing')">Briefing</button>
+    <button class="tab active" onclick="showTab('briefing')">📊 Briefing</button>
+    <button class="tab" onclick="showTab('reporting')">📁 Reporting</button>
   </div>
 </div>
+
 <div class="content">
-  <div id="tab-journal">
-    <div id="entries-list"><div class="empty">⏳ Chargement...</div></div>
+
+  <!-- ── BRIEFING ── -->
+  <div id="tab-briefing">
+    <div id="briefing-content"><div class="empty">⏳ Chargement...</div></div>
   </div>
-  <div id="tab-saisie" style="display:none">
-    <div class="card">
-      <div style="margin-bottom:16px">
-        <div class="label-sm">Date</div>
-        <input type="date" id="entry-date">
-      </div>
-      <div id="assets-form"></div>
-      <div style="margin-top:16px">
-        <div class="label-sm">Commentaire</div>
-        <textarea id="comment" rows="4" placeholder="Ton analyse du jour..."></textarea>
-      </div>
-      <button class="btn-save" onclick="saveEntry()">Enregistrer</button>
+
+  <!-- ── REPORTING ── -->
+  <div id="tab-reporting" style="display:none">
+    <div class="sub-tabs">
+      <button class="sub-tab active" onclick="showSubTab('synthese')">Synthèse</button>
+      <button class="sub-tab" onclick="showSubTab('positions')">Positions</button>
+      <button class="sub-tab" onclick="showSubTab('allocation')">Allocation</button>
     </div>
+    <div id="sub-synthese"></div>
+    <div id="sub-positions" style="display:none"></div>
+    <div id="sub-allocation" style="display:none"></div>
   </div>
-  <div id="tab-synthese" style="display:none">
-    <div class="card" id="synthese-content"><div class="empty">Aucune donnée</div></div>
-  </div>
-  <div id="tab-briefing" style="display:none">
-  <div id="briefing-content"><div class="empty">⏳ Chargement...</div></div>
+
 </div>
-</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const sb = supabase.createClient(
   'https://chgvntaippgbljedbnir.supabase.co',
   'sb_publishable_Q8igJiH4Vm7n231OKhXtew_XkNWIHFw'
 )
-const ASSETS = [
-  { key: 'eurusd',   label: 'EUR/USD' },
-  { key: 'usdjpy',   label: 'USD/JPY' },
-  { key: 'sp500',    label: 'S&P 500' },
-  { key: 'nasdaq',   label: 'Nasdaq' },
-  { key: 'topix',    label: 'Topix' },
-  { key: 'europe',   label: 'Actions Europe' },
-  { key: 'gold',     label: 'Or' },
-  { key: 'oil',      label: 'Pétrole' },
-  { key: 'us_rates', label: 'Taux US 10Y' },
-  { key: 'eu_rates', label: 'Taux EUR 10Y' },
-]
-const COLORS = { '-2':'#c0392b','-1':'#e67e22','0':'#7f8c8d','1':'#27ae60','2':'#1a7a4a' }
-const SELCLASS = { '-2':'sel-n2','-1':'sel-n1','0':'sel-0','1':'sel-p1','2':'sel-p2' }
-let entries = [], sentiments = {}
-document.getElementById('entry-date').value = new Date().toISOString().split('T')[0]
 
-const form = document.getElementById('assets-form')
-ASSETS.forEach(a => {
-  const row = document.createElement('div')
-  row.className = 'asset-row'
-  row.innerHTML = `<div class="asset-label">${a.label}</div><div class="btns" id="btns-${a.key}"></div>`
-  form.appendChild(row)
-  sentiments[a.key] = null
-  const btns = document.getElementById('btns-' + a.key)
-  ;[-2,-1,0,1,2].forEach(v => {
-    const b = document.createElement('button')
-    b.className = 'btn-sentiment'
-    b.textContent = v > 0 ? '+'+v : v
-    b.onclick = () => setSentiment(a.key, v)
-    btns.appendChild(b)
-  })
-})
-
-function setSentiment(key, val) {
-  sentiments[key] = val
-  const btns = document.getElementById('btns-' + key).querySelectorAll('button')
-  const vals = [-2,-1,0,1,2]
-  btns.forEach((b,i) => {
-    b.className = 'btn-sentiment' + (sentiments[key]===vals[i] ? ' '+SELCLASS[vals[i]] : '')
-  })
+const POCHE_COLORS = {
+  'EQUITY CŒUR':         { bg:'#0070C0', fg:'#fff' },
+  'HEDGE / CTA / FONDS': { bg:'#E26B0A', fg:'#fff' },
+  'FIXED INCOME':        { bg:'#FFFF00', fg:'#1a1a2e' },
+  'COMMODITIES':         { bg:'#7C3D12', fg:'#fff' },
+  'SATELLITES':          { bg:'#5B21B6', fg:'#fff' },
+  'CASH':                { bg:'#374151', fg:'#fff' },
 }
 
 function showTab(name) {
-;['journal','saisie','synthese','briefing'].forEach(t => {
+  ['briefing','reporting'].forEach(t => {
     document.getElementById('tab-'+t).style.display = t===name ? '' : 'none'
-    document.querySelectorAll('.tab')[['journal','saisie','synthese'].indexOf(t)].classList.toggle('active', t===name)
+    document.querySelectorAll('.tab').forEach((b,i) => {
+      if(['briefing','reporting'][i]===name) b.classList.add('active')
+      else b.classList.remove('active')
+    })
   })
-  if (name === 'synthese') renderSynthese()
 }
 
-function fmt(d) { const [y,m,day]=d.split('-'); return `${day}/${m}/${y}` }
-async function loadBriefing() {
-  const { data, error } = await sb.from('briefings').select('*').order('briefing_date', { ascending: false }).limit(1)
-  const el = document.getElementById('briefing-content')
-  if (!error && data && data.length > 0) {
-    const b = data[0]
-    el.innerHTML = `<div class="card" style="white-space:pre-wrap;line-height:1.7;font-size:14px"><div style="font-weight:700;color:#1a1a2e;margin-bottom:12px">📊 Briefing du ${new Date(b.briefing_date).toLocaleDateString('fr-FR')}</div>${b.content}</div>`
-  } else {
-    el.innerHTML = '<div class="empty">Aucun briefing disponible</div>'
-  }
-}
-async function loadEntries() {
-  const { data, error } = await sb.from('entries').select('*').order('entry_date', { ascending: false })
-  if (!error && data) { entries = data; renderJournal() }
+function showSubTab(name) {
+  ['synthese','positions','allocation'].forEach(t => {
+    document.getElementById('sub-'+t).style.display = t===name ? '' : 'none'
+  })
+  document.querySelectorAll('.sub-tab').forEach((b,i) => {
+    if(['synthese','positions','allocation'][i]===name) b.classList.add('active')
+    else b.classList.remove('active')
+  })
 }
 
-function renderJournal() {
-  const el = document.getElementById('entries-list')
-  if (!entries.length) { el.innerHTML = '<div class="empty">📓<br>Aucune entrée</div>'; return }
-  el.innerHTML = entries.map(e => {
-    const badges = ASSETS.filter(a => e[a.key] !== null && e[a.key] !== undefined)
-      .map(a => `<span class="badge" style="background:${COLORS[e[a.key]]}20;color:${COLORS[e[a.key]]};border:1px solid ${COLORS[e[a.key]]}40">${a.label} ${e[a.key]>0?'+':''}${e[a.key]}</span>`).join('')
-    const comment = e.comment ? `<div class="comment-block">${e.comment}</div>` : ''
-    return `<div class="card"><div class="entry-date">${fmt(e.entry_date)}</div><div class="badges">${badges}</div>${comment}</div>`
-  }).join('')
+function fmt(d) {
+  const [y,m,day]=d.split('-'); return `${day}/${m}/${y}`
 }
 
-function renderSynthese() {
-  const el = document.getElementById('synthese-content')
-  if (!entries.length) { el.innerHTML = '<div class="empty">Aucune donnée</div>'; return }
-  const rows = ASSETS.map(a => {
-    const vals = entries.map(e => e[a.key]).filter(v => v !== null && v !== undefined)
-    if (!vals.length) return ''
-    const avg = (vals.reduce((x,y)=>x+y,0)/vals.length).toFixed(2)
-    const color = COLORS[Math.round(parseFloat(avg))]
-    return `<div class="avg-row"><span>${a.label}</span><span style="font-weight:700;color:${color}">${parseFloat(avg)>0?'+':''}${avg}</span></div>`
-  }).join('')
-  el.innerHTML = `<div class="label-sm" style="margin-bottom:12px">Moyenne sur ${entries.length} entrée${entries.length>1?'s':''}</div>${rows}`
+function pctClass(v) {
+  return v > 0 ? 'pos' : v < 0 ? 'neg' : 'neu'
 }
 
-async function saveEntry() {
-  const date = document.getElementById('entry-date').value
-  const comment = document.getElementById('comment').value
-  if (!date) { alert('Choisis une date'); return }
-  const row = { entry_date: date, comment, ...sentiments }
-  const { error } = await sb.from('entries').upsert(row, { onConflict: 'entry_date' })
-  if (error) {
-    document.getElementById('status').textContent = '❌ Erreur'
-    document.getElementById('status').style.color = '#e74c3c'
-  } else {
-    document.getElementById('status').textContent = '✅ Sauvegardé'
-    document.getElementById('status').style.color = '#27ae60'
-    await loadEntries()
-    showTab('journal')
-  }
-  setTimeout(() => document.getElementById('status').textContent = '', 3000)
+function pctStr(v, decimals=2) {
+  const s = (v*100).toFixed(decimals)
+  return v > 0 ? '+'+s+'%' : s+'%'
 }
+
+function ecartClass(e) {
+  if(Math.abs(e)<=2) return 'ecart-ok'
+  return e > 0 ? 'pos' : 'neg'
+}
+
+// ── BRIEFING ─────────────────────────────────────────────────────────────────
 async function loadBriefing() {
   const { data, error } = await sb.from('briefings').select('*').order('briefing_date', { ascending: false }).limit(1)
   const el = document.getElementById('briefing-content')
   if (!error && data && data.length > 0) {
     const b = data[0]
     let text = typeof b.content === 'string' ? b.content : JSON.stringify(b.content)
-text = text
-  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-  .replace(/^### (.*)/gm, '<div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-top:12px">$1</div>')
-  .replace(/^## (.*)/gm, '<div style="font-size:14px;font-weight:700;color:#1a1a2e;margin-top:14px">$1</div>')
-  .replace(/^# (.*)/gm, '<div style="font-size:16px;font-weight:700;color:#1a1a2e;margin-top:16px">$1</div>')
-  .replace(/^---$/gm, '<hr style="border:none;border-top:1px solid #e8ecf0;margin:10px 0">')
-  .replace(/\n/g, '<br>')
-el.innerHTML = `<div class="card" style="line-height:1.7;font-size:14px"><div style="font-weight:700;color:#1a1a2e;margin-bottom:12px">📊 Briefing du ${new Date(b.briefing_date).toLocaleDateString('fr-FR')}</div>${text}</div>`
+    text = text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/^### (.*)/gm, '<div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-top:12px">$1</div>')
+      .replace(/^## (.*)/gm, '<div style="font-size:14px;font-weight:700;color:#1a1a2e;margin-top:14px">$1</div>')
+      .replace(/^# (.*)/gm, '<div style="font-size:15px;font-weight:700;color:#1a1a2e;margin-top:16px">$1</div>')
+      .replace(/^---$/gm, '<hr style="border:none;border-top:1px solid #e8ecf0;margin:10px 0">')
+      .replace(/\n/g, '<br>')
+    el.innerHTML = `<div class="card">
+      <div class="briefing-date">📊 Briefing du ${fmt(b.briefing_date)}</div>
+      <div class="briefing-body">${text}</div>
+    </div>`
   } else {
     el.innerHTML = '<div class="empty">Aucun briefing disponible</div>'
   }
 }
 
+// ── REPORTING ─────────────────────────────────────────────────────────────────
+async function loadReporting() {
+  const { data, error } = await sb.from('reporting').select('*').order('report_date', { ascending: false }).limit(1)
+  if (error || !data || data.length === 0) {
+    document.getElementById('sub-synthese').innerHTML = '<div class="empty">Aucun reporting disponible</div>'
+    document.getElementById('sub-positions').innerHTML = '<div class="empty">Aucun reporting disponible</div>'
+    document.getElementById('sub-allocation').innerHTML = '<div class="empty">Aucun reporting disponible</div>'
+    return
+  }
+  const r = data[0]
+  const d = r.data
+  renderSynthese(d, r.report_date)
+  renderPositions(d)
+  renderAllocation(d)
+}
+
+function renderSynthese(d, date) {
+  const m = d.meta
+  const twrClass = pctClass(m.perf_twr/100)
+  const acspxClass = pctClass(m.alpha_cspx/100)
+  const acoClass = pctClass(m.alpha_compo/100)
+
+  let txnHtml = ''
+  if(d.transactions && d.transactions.length > 0) {
+    txnHtml = d.transactions.map(t => `
+      <div class="txn-row">
+        <div class="txn-left">
+          <div class="txn-sym">${t.symbol} <span class="txn-${t.side==='Achat'?'achat':'vente'}">${t.side}</span></div>
+          <div class="txn-desc">${t.desc} — ${t.comment}</div>
+        </div>
+        <div class="txn-right">
+          <div class="${t.side==='Achat'?'pos':'neg'}">${t.pct_actifs?.toFixed(1)}%</div>
+        </div>
+      </div>`).join('')
+  }
+
+  document.getElementById('sub-synthese').innerHTML = `
+    <div class="report-date">Reporting au ${fmt(date)}</div>
+    <div class="kpi-grid">
+      <div class="kpi-box">
+        <div class="kpi-label">NAV Début</div>
+        <div class="kpi-value neu">${m.nav_start?.toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:0})} €</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-label">NAV Fin</div>
+        <div class="kpi-value gold">${m.nav_end?.toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:0})} €</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-label">Perf Période</div>
+        <div class="kpi-value ${twrClass}">${m.perf_twr > 0 ? '+' : ''}${m.perf_twr?.toFixed(2)}%</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-label">Bench 60/40</div>
+        <div class="kpi-value neu">${m.bench_compo > 0 ? '+' : ''}${m.bench_compo?.toFixed(2)}%</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-label">Alpha vs S&P</div>
+        <div class="kpi-value ${acspxClass}">${m.alpha_cspx > 0 ? '+' : ''}${m.alpha_cspx?.toFixed(2)}%</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-label">Alpha vs 60/40</div>
+        <div class="kpi-value ${acoClass}">${m.alpha_compo > 0 ? '+' : ''}${m.alpha_compo?.toFixed(2)}%</div>
+      </div>
+    </div>
+    ${d.commentaire_marche ? `<div class="comment-block comment-marche"><div class="comment-title">📊 Marchés</div>${d.commentaire_marche}</div>` : ''}
+    ${d.commentaire_portf ? `<div class="comment-block comment-portf"><div class="comment-title">💼 Portefeuille</div>${d.commentaire_portf}</div>` : ''}
+    ${txnHtml ? `<div class="card"><div class="label-sm" style="margin-bottom:10px">Transactions du jour</div>${txnHtml}</div>` : ''}
+  `
+}
+
+function renderPositions(d) {
+  if(!d.positions_perf) return
+  let html = ''
+  d.positions_perf.forEach(poche => {
+    const pc = POCHE_COLORS[poche.poche] || {bg:'#1a1a2e',fg:'#fff'}
+    const lines = poche.instruments || []
+    const totalW = lines.reduce((a,l)=>a+l.avg_weight,0)
+    const perfMoy = totalW > 0 ? lines.reduce((a,l)=>a+l.avg_weight*l.perf,0)/totalW : 0
+    const contrib = lines.reduce((a,l)=>a+l.avg_weight/100*l.perf/100,0)*100
+    const pctAum = lines.filter(l=>l.open).reduce((a,l)=>a+(l.val_marche||0),0) / d.meta.nav_end * 100
+
+    html += `<div class="poche-header" style="background:${pc.bg};color:${pc.fg}">
+      <div class="ph-name">${poche.poche}</div>
+      <div class="ph-stats">
+        <div class="ph-stat">AUM <span>${pctAum.toFixed(1)}%</span></div>
+        <div class="ph-stat">Perf <span class="${perfMoy>0?'pos':'neg'}" style="color:${perfMoy>0?'#00ff88':'#ff6666'}">${perfMoy>0?'+':''}${perfMoy.toFixed(2)}%</span></div>
+        <div class="ph-stat">Contrib <span style="color:${contrib>0?'#00ff88':'#ff6666'}">${contrib>0?'+':''}${contrib.toFixed(2)}%</span></div>
+      </div>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden;margin-bottom:4px">`
+
+    lines.forEach(l => {
+      html += `<div class="line-row">
+        <div class="line-left">
+          <div class="line-sym">${l.sym}</div>
+          <div class="line-desc">${l.desc}</div>
+        </div>
+        <div class="line-right">
+          <div class="line-pct ${pctClass(l.perf/100)}">${l.perf>0?'+':''}${l.perf.toFixed(2)}%</div>
+          <div class="line-pct neu" style="font-size:10px;color:#888">${(l.avg_weight).toFixed(1)}%</div>
+        </div>
+      </div>`
+    })
+    html += `</div>`
+  })
+
+  // Total
+  html += `<div class="total-row">
+    <span>TOTAL PORTEFEUILLE</span>
+    <span class="${pctClass(d.meta.perf_twr/100)}">${d.meta.perf_twr>0?'+':''}${d.meta.perf_twr.toFixed(2)}%</span>
+  </div>`
+
+  document.getElementById('sub-positions').innerHTML = html
+}
+
+function renderAllocation(d) {
+  if(!d.positions_fin_periode) return
+  const ALLOC_CIBLE = {
+    'EQUITY CŒUR':45,'HEDGE / CTA / FONDS':20,
+    'FIXED INCOME':20,'COMMODITIES':5,'CASH':10
+  }
+  let html = ''
+  d.positions_fin_periode.forEach(poche => {
+    const pc = POCHE_COLORS[poche.poche] || {bg:'#1a1a2e',fg:'#fff'}
+    const lines = poche.instruments || []
+    const valTot = lines.reduce((a,l)=>a+(l.val_marche||0),0)
+    const pctNav = valTot / d.meta.nav_end * 100
+    const cible = ALLOC_CIBLE[poche.poche] || 0
+    const ecart = pctNav - cible
+    const barW = Math.min(pctNav / 60 * 100, 100)
+
+    html += `<div class="alloc-poche" style="background:${pc.bg};color:${pc.fg}">
+      <div class="alloc-poche-header">
+        <div class="alloc-poche-name">${poche.poche}</div>
+        <div class="alloc-poche-val">${valTot.toLocaleString('fr-FR',{maximumFractionDigits:0})} €</div>
+      </div>
+      <div class="alloc-bar-wrap"><div class="alloc-bar" style="width:${barW}%"></div></div>
+      <div class="alloc-poche-meta">
+        <span>Réel <strong>${pctNav.toFixed(1)}%</strong></span>
+        <span>Cible <strong>${cible}%</strong></span>
+        <span>Écart <strong>${ecart>0?'+':''}${ecart.toFixed(1)}%</strong></span>
+      </div>
+      <div class="alloc-lines">`
+
+    lines.forEach(l => {
+      const pct = (l.val_marche||0) / d.meta.nav_end * 100
+      html += `<div class="alloc-line">
+        <span><strong>${l.sym}</strong> ${l.desc}</span>
+        <span>${pct.toFixed(1)}%</span>
+      </div>`
+    })
+
+    html += `</div></div>`
+  })
+
+  document.getElementById('sub-allocation').innerHTML = html
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
 loadBriefing()
-loadEntries()
-loadEntries()
-  loadBriefing()
+loadReporting()
 </script>
 </body>
 </html>
